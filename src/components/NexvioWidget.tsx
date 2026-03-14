@@ -35,7 +35,9 @@ import('${NEXVIO_WIDGET_SCRIPT_URL}').then(function () {
 });
 `;
     document.body.appendChild(script);
-    return () => script.parentNode?.removeChild(script);
+    return () => {
+      script.parentNode?.removeChild(script);
+    };
   }, [publicKey, frameBaseUrl]);
 
   if (!publicKey) return null;

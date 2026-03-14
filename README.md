@@ -4,6 +4,8 @@ Deploy a Next.js site with the Nexvio AI chat widget in seconds.
 
 **One widget. One env key. Instant AI agent.**
 
+**Live demo:** [nextjs-nexvio-template.vercel.app](https://nextjs-nexvio-template.vercel.app)
+
 ---
 
 ## Deploy with Vercel
@@ -31,4 +33,4 @@ Replace `YOUR_USERNAME` with your GitHub username (or your org) and `nextjs-nexv
 
 **Tagline:** Add an AI Chat Agent to Your Next.js App in 30 Seconds
 
-**Description:** A Next.js starter template with Nexvio AI chat widget integration. Deploy instantly and add an AI assistant to your website with one env key.
+**Description:** A Next.js starter template with Nexvio AI chat widget integration. Deploy instantly and add an AI assistant to your website with one env key. Live demo: [nextjs-nexvio-template.vercel.app](https://nextjs-nexvio-template.vercel.app)
