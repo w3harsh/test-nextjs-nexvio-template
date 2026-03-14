@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
-import { BsLightningCharge, BsShieldCheck } from "react-icons/bs";
+import { BsLightningCharge, BsLightbulb, BsShieldCheck } from "react-icons/bs";
 import { FiArrowRight, FiMessageSquare, FiSun, FiMoon, FiCopy } from "react-icons/fi";
 import Image from "next/image";
 
@@ -14,6 +14,9 @@ const LINKS = {
   terms: "https://nexvio.ai/terms",
   privacy: "https://nexvio.ai/privacy-policy",
 };
+
+const DEPLOY_VERCEL_URL =
+  "https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fw3harsh%2Ftest-nextjs-nexvio-template&env=NEXT_PUBLIC_NEXVIO_ID&envDescription=Nexvio%20widget%20public%20key%20from%20app.nexvio.ai";
 
 const NEXVIO_SNIPPET = `<nexvio-chat-bot id="nexvio-chatbot"></nexvio-chat-bot>
 <script type="module">
@@ -65,8 +68,9 @@ export default function LandingPage() {
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
-        <div className="container mx-auto px-6 h-16 max-w-6xl flex items-center justify-between">
+      <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/90 backdrop-blur-md">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-muted/20 to-transparent pointer-events-none" />
+        <div className="container relative z-10 mx-auto px-6 h-16 max-w-6xl flex items-center justify-between">
           <div className="flex items-center gap-4">
             <a href={LINKS.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
               <div className="flex items-center justify-center">
@@ -75,8 +79,10 @@ export default function LandingPage() {
               <span className="font-bold text-xl tracking-tight">Nexvio</span>
             </a>
             <span className="text-muted-foreground/40 font-light text-2xl">+</span>
-            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
-              <Image src="/vercel.svg" alt="Vercel Logo" width={20} height={20} className="invert dark:invert-0" />
+            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground opacity-80 hover:opacity-100 transition-opacity">
+              <svg width="20" height="20" viewBox="0 0 1155 1000" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0" aria-hidden>
+                <path d="m577.3 0 577.4 1000H0z" fill="currentColor" />
+              </svg>
               <span className="font-semibold text-lg tracking-tight">Vercel</span>
             </a>
           </div>
@@ -111,7 +117,7 @@ export default function LandingPage() {
             />
           </div>
 
-          <div className="container relative z-10 mx-auto max-w-4xl px-6 py-24 md:py-32 text-center">
+          <div className="container relative z-10 mx-auto max-w-4xl px-6 pt-12 pb-24 md:pt-16 md:pb-32 text-center">
             <motion.div
               className="flex flex-col items-center gap-8"
               initial="hidden"
@@ -163,8 +169,21 @@ export default function LandingPage() {
               <motion.div
                 variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.5, delay: 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="flex flex-col items-center gap-3 sm:flex-row"
+                className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center"
               >
+                <motion.a
+                  href={DEPLOY_VERCEL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90 dark:bg-white dark:text-black"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <svg width="16" height="14" viewBox="0 0 1155 1000" fill="currentColor" className="shrink-0">
+                    <path d="m577.3 0 577.4 1000H0z" />
+                  </svg>
+                  Deploy with Vercel
+                </motion.a>
                 <motion.a
                   href={LINKS.website}
                   target="_blank"
@@ -264,7 +283,7 @@ export default function LandingPage() {
                   desc: "Add the Nexvio widget and launch your AI assistant in seconds. No complex setup or training required.",
                 },
                 {
-                  icon: <Image src="/nexvio-icon.png" alt="Smart context" width={24} height={24} />,
+                  icon: <BsLightbulb size={24} />,
                   title: "Smart Context Awareness",
                   desc: "Nexvio automatically understands your website content and answers user questions accurately.",
                 },
@@ -332,8 +351,10 @@ export default function LandingPage() {
               Nexvio
             </a>
             <span className="text-muted-foreground/40 font-light text-2xl">+</span>
-            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity text-foreground font-semibold text-lg">
-              <Image src="/vercel.svg" alt="Vercel Logo" width={20} height={20} className="invert dark:invert-0" />
+            <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-foreground opacity-80 hover:opacity-100 transition-opacity font-semibold text-lg">
+              <svg width="20" height="20" viewBox="0 0 1155 1000" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0" aria-hidden>
+                <path d="m577.3 0 577.4 1000H0z" fill="currentColor" />
+              </svg>
               Vercel
             </a>
           </div>
